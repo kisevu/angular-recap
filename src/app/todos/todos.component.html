@@ -1,1 +1,21 @@
-<p>todos works!</p>
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">todo</th>
+      <th scope="col">User Id</th>
+      <th scope="col">Completed </th>
+    </tr>
+  </thead>
+  @for (todo of todoItems(); track todo.id) {
+    <tbody>
+      <tr>
+      <th scope="row">{{todo.id}}</th>
+      <td>{{todo.title}}</td>
+      <td>{{todo.userId}}</td>
+      <td>{{todo.completed }}</td>
+      </tr>
+    </tbody>
+  }
+  
+</table>

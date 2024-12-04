@@ -1,5 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { TodosService } from '../services/todos.service';
+import { Todo } from '../model/todo.type';
 
 @Component({
   selector: 'app-todos',
@@ -11,8 +12,19 @@ import { TodosService } from '../services/todos.service';
 export class TodosComponent implements OnInit{
  todoService = inject(TodosService);
 
+ /* 
+  rendering items onto the template requires
+  to put the items on the todoService into some sort of signal()
+  there are two steps to that
+ */
+  todoItems = signal<Array<Todo>>([]);
+
+
+
+ //codes inside ngOnInit triggers once this component is initiated
+ //initialization of the array is done here
   ngOnInit(): void {
-    console.log(this.todoService.todoItems);
+    this.todoItems.set(this.todoService.todoItems);
   }
 
 
