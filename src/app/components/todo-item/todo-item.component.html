@@ -2,7 +2,7 @@
   
   <tr appHighlightCompletedTodo [isCompleted]="todo().completed">
   <td>{{todo().id}}</td>
-  <td>{{todo().title}}</td>
+  <td>{{todo().title | uppercase }}</td>
   <td>{{todo().userId}}</td>
   <td>{{todo().completed }}</td>
   </tr>

@@ -3,6 +3,16 @@
   <p>Loading...</p>
 }
 
+<form action="">
+<label>Filter todos based off input search term</label>
+<input 
+name="searchTerm"
+[(ngModel)]="searchTerm" 
+type="text" 
+placeholder="search todo"/>
+
+</form>
+
 <table class="table table-stripped">
   <thead>
     <tr>
@@ -12,7 +22,7 @@
       <th scope="col">Completed </th>
     </tr>
   </thead>
-  @for (todo of todoItems(); track todo.id) {
+  @for (todo of todoItems() | filterTodos: searchTerm(); track todo.id) {
     <tbody>
         <app-todo-item [todo]="todo"/>
     </tbody>
