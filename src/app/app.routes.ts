@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+
   {
   path: '',
   pathMatch: 'full',
@@ -11,10 +12,20 @@ export const routes: Routes = [
 
   {
     path: 'todos',
-  loadComponent: () => {
+    loadComponent: () => {
     return import('./todos/todos.component').then(
       (m) => m.TodosComponent
     )
   },
   },
+
+  {
+    path: 'family',
+    loadComponent: () => {
+    return import ('./family/family.component').then(
+      (m) => m.FamilyComponent
+    )
+    },
+  },
+
 ];

@@ -17,4 +17,5 @@ export class HomeComponent {
   keyUpHandler(event: KeyboardEvent){
     console.log(`User pressed the ${event.key} key`);
   }
+
 }
